@@ -42,6 +42,8 @@ public:
     }
 
 private:
+    // T: O(n*log m) binary takes O(log m) and iterating through nums1 takes O(n)
+    // S: O(1) no extra memory
     bool binarySearch(int target, vector<int>& nums){
         int left = 0;
         int right = nums.size() -1;
