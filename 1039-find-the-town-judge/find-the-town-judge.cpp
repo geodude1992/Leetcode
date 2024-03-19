@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int findJudge(int n, vector<vector<int>>& trust) {
+        if(trust.size() < n - 1) return -1;
+
+        vector<int> trustScores(n + 1);
+
+        for(vector<int> person : trust){
+            // decrements the trust count of the first person in the pair. 
+            // This is done because if the first person trusts the second person, it means that the first person does not trust themselves.
+            trustScores[person[0]]--;
+            // increments the trust count of the second person in the pair. 
+            // This is done because if the first person trusts the second person, it means that the second person is trusted by the first person.
+            trustScores[person[1]]++;
+        }
+        for(int person = 1; person <= n; ++person){
+            // check if there is a person who is trusted by everyone except themselves (n-1 people) 
+            // and if such person exists it returns the index of that person.
+            if(trustScores[person] == n - 1) return person;
+        }
+        return -1;
+    }
+};
