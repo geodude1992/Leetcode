@@ -1,8 +1,14 @@
 class Solution {
     vector<int> duplicates;
 public:
-    // Time Complexity: O(n) where n is size of input array
-    // Space Complexity: O(1)
+    /*  Time Complexity: O(n) where n is size of input array
+        Space Complexity: O(1)
+        Algorithm:
+            1. Scan every element in array.
+            2. Negate the value at index of ((absolute value of scanned element) - 1)).
+            3. Now check if the value a the index is +ve or not. If positive its a duplicate element .
+
+    */
     vector<int> findDuplicates(vector<int>& nums) {
     for(int i=0; i < nums.size(); i++)
         { 
