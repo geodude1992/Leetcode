@@ -14,9 +14,10 @@ public:
             while(nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] != nums[i])
                 // swap current index with 
                 swap(nums[i], nums[nums[i] - 1]);        
+        /* TESTING
         for(int i = 0; i < n; ++i) {
             cout << nums[i]<<endl;
-        }   
+        }  */
         for(int i = 0; i < n; ++i)
             // Checks if the current index has a value that is in the incorrect spot
             // return that missing value
