@@ -50,11 +50,14 @@ public:
 			// carry is updated by sum/10 because for 18 , 
 			// 18 / 10 is 1 which is the carry
             carry = sum/10;
+
 			// add sum% 10 to new node as it containg the sum
-            ListNode *node = new ListNode(sum%10);
+            ListNode *node = new ListNode(sum % 10);
             temp -> next = node;
             temp = temp -> next;
         }
-        return ptr -> next;
+        ListNode* result = ptr -> next;
+        delete ptr; // Freeing the memory allocated for dummyHead
+        return result;
     }
 };
