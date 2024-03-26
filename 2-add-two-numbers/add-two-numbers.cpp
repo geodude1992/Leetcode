@@ -24,9 +24,9 @@ public:
         ListNode *ptr = new ListNode();     //new list;
         ListNode *temp = ptr;
         
-        int c = 0;
+        int carry = 0;
 		//traversing both list till one of the list not reaches NULL
-        while (l1 != nullptr ||  l2 != nullptr || c)
+        while (l1 != nullptr ||  l2 != nullptr || carry)
         {
             int sum = 0;
 			// if l1  is not null
@@ -46,10 +46,10 @@ public:
             }
             
 			// add carry to sum
-            sum += c;
+            sum += carry;
 			// carry is updated by sum/10 because for 18 , 
 			// 18 / 10 is 1 which is the carry
-            c = sum/10;
+            carry = sum/10;
 			// add sum% 10 to new node as it containg the sum
             ListNode *node = new ListNode(sum%10);
             temp -> next = node;
