@@ -13,7 +13,7 @@ public:
 
             // If the deque is non empty and current val in nums >= last element of deque
             // then remove all elements are <= from back
-            while(deq.size() > 0 && nums[start] >= nums[deq.back()]){
+            while(!deq.empty() && nums[start] >= nums[deq.back()]){
                 deq.pop_back();
             }
 
