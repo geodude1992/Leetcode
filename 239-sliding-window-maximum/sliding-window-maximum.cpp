@@ -1,7 +1,13 @@
 class Solution {
 public:
-    // Monotonically Decreasing Queue
-    // add and remove from deque takes O(1)
+/** 
+    Monotonically Decreasing Queue
+        add and remove from deque takes O(1)
+
+    Complexity
+        Time complexity:O(n)
+        Space complexity:O(n)
+*/
     vector<int> maxSlidingWindow(vector<int>& nums, int k) {
         vector<int> result;
         deque<int> deq;    // efficiency
@@ -9,7 +15,7 @@ public:
 
         for(int start = 0; start < arrLen; start++){
             // If the deque head is out of the window then pop head
-            if(deq.size() > 0 && deq.front() <= start - k) deq.pop_front();
+            if(!deq.empty() && deq.front() <= start - k) deq.pop_front();
 
             // If the deque is non empty and current val in nums >= last element of deque
             // then remove all elements are <= from back
@@ -21,7 +27,9 @@ public:
             deq.push_back(start);
 
             // Store results from the end of the first window
-            if(start + 1 >= k) result.push_back(nums[deq.front()]);
+            if(start + 1 >= k) {
+                result.push_back(nums[deq.front()]);
+            }
         }
         return result;
     }
