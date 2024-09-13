@@ -21,6 +21,8 @@ public:
     vector<int> twoSum(vector<int>& nums, int target) {
         vector<int> result;
         unordered_map<int, int> hmap;
+
+        // Iterate through the array and insert to hashmap simultaneously
         for(int i = 0; i < nums.size(); i++){
             int complement = target - nums[i];
             if(hmap.find(complement) != hmap.end()){
