@@ -1,6 +1,6 @@
 class Solution {
 public:
-    //Brute force O(n^2)
+    /*Brute force O(n^2)
     vector<int> twoSum(vector<int>& nums, int target) {
         vector<int> result;
         // loop 
@@ -13,6 +13,23 @@ public:
                     return result;
                 }
             }
+        }
+        return {};
+    }*/ 
+
+    // One-Pass Hashmap
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> result;
+        unordered_map<int, int> hmap;
+        for(int i = 0; i < nums.size(); i++){
+            int complement = target - nums[i];
+            if(hmap.find(complement) != hmap.end()){
+                result.push_back(i);
+                result.push_back(hmap[complement]);
+                return result;
+                //return {i, hmap[complement]};
+            }
+            hmap[nums[i]] = i;
         }
         return {};
     }
