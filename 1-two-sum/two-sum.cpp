@@ -25,7 +25,8 @@ public:
         // Iterate through the array and insert to hashmap simultaneously
         for(int i = 0; i < nums.size(); i++){
             int complement = target - nums[i];
-            if(hmap.find(complement) != hmap.end()){
+            //if(hmap.find(complement) != hmap.end()){
+            if(hmap.count(complement)){
                 result.push_back(i);
                 result.push_back(hmap[complement]);
                 return result;
