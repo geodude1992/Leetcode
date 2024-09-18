@@ -54,7 +54,7 @@ public:
         // itr.first: The key of the unordered_map. 
         // itr.second: The value associated with that key.
         for(auto itr : common){
-            if(itr.second == 1) result.push_back(itr.first);
+            if(itr.second == 1) result.push_back(itr.first);    // Add the word(Key) that occurs only once(value=1)
         }
         return result;
     }
