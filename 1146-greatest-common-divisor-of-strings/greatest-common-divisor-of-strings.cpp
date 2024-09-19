@@ -33,6 +33,8 @@ public:
         return "";
     }*/ 
 
+    // T: O(m + n) - Binary Euclidean Algorithm log(m*n)
+    // S: O(m + n) - Compare 2 concatenations of lengths
     // GCD
     std::string gcdOfStrings(std::string str1, std::string str2) {
         // Check concatenations of str1 and str2 
