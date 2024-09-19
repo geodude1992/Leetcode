@@ -1,7 +1,7 @@
 #include <numeric> // gcd function
 class Solution {
 public:
-    // T: O(min(m, n) * (m + n))
+    /* T: O(min(m, n) * (m + n))
     // S: O(min(m, n))
     // k is the ratio of length of a string and base length
     bool valid(string str1, string str2, int k){
@@ -31,5 +31,19 @@ public:
             }
         }
         return "";
+    }*/ 
+
+    // GCD
+    std::string gcdOfStrings(std::string str1, std::string str2) {
+        // Check concatenations of str1 and str2 
+        if(str1 + str2 != str2 + str1){
+            return "";
+        }
+
+        // Get the GCD of the two lengths
+        int gcdLength = gcd(str1.length(), str2.length());
+
+        // Return the prefix string with a length of gcdLength of either str1 or str2
+        return str1.substr(0, gcdLength);
     }
 };
