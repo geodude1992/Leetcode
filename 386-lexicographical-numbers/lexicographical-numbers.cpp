@@ -43,7 +43,7 @@ public:
             if(current * 10 <= n){
                 current *= 10;
             }else{
-                // if current ends with a 9 or next leaf divide by 10 and move up a level, remove last digit
+                // while current ends with a 9 or next leaf divide by 10 and move up a level, remove last digit
                 while(current >= n || current % 10 == 9){
                     current /= 10;
                 }
