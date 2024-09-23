@@ -35,7 +35,8 @@ public:
         vector<int> lexinums;
         int current = 1;
 
-        while(lexinums.size() < n){
+        // Generate all numbers from 1 to n
+        for(int i = 0; i < n; i++){
             // In each iteration add current number to result array
             lexinums.push_back(current);
 
@@ -43,8 +44,10 @@ public:
             if(current * 10 <= n){
                 current *= 10;
             }else{
-                // while current ends with a 9 or next leaf divide by 10 and move up a level, remove last digit
+                // While current ends with 9 or next leaf divide by 10 and move up a level
+                // use if n < 199 else use while since if we are at 1999 -> 199 -> 19
                 while(current >= n || current % 10 == 9){
+                    // Remove last digit
                     current /= 10;
                 }
                 // Increment current num if current * 10 is greater than n
