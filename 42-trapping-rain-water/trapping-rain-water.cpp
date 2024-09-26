@@ -21,7 +21,8 @@ public:
         }
         return result;
     }*/
-    // DP - Store max heights from both sides
+
+    /* DP - Store max heights from both sides
     // T: O(n) - Store the max heights upto a point using 2 iterations
     // S: O(n) - additional space for left/right_max arrays
     int trap(vector<int>& height) {
@@ -42,6 +43,37 @@ public:
         }
         for(int i = 1; i < height.size() - 1; i++){
             result += min(left_max[i], right_max[i]) - height[i];
+        }
+        return result;
+    }*/
+
+    // Using Stacks - 
+    // T: O(n) - each bar can be touched at most twice(insertation and deletion, O(1))
+    // S: O(n0 - Stack can take upto O(n), stairs or flat array
+    int trap(vector<int>& height) {
+        // Use stack to store the indices of the bars
+        int result = 0, current = 0;
+        stack<int> stacc;
+
+        while(current < height.size()){
+            // Iterate the array while stack is not empty and height[cur] > height[stack.top()]
+            while(!stacc.empty() && height[current] > height[stacc.top()]){
+                // stack element can be popped
+                int top = stacc.top();
+                stacc.pop();
+                if(stacc.empty()) break;
+
+                // Find distance between the current element and th element at the top of stack
+                int distance = current - stacc.top() - 1;
+
+                // Find the bounded height
+                int bounded_height = min(height[current], height[stacc.top()]) - height[top];
+
+                // Add resulting trapped water
+                result += distance * bounded_height;
+            }
+            // Push current index to top of the stack
+            stacc.push(current++);
         }
         return result;
     }
