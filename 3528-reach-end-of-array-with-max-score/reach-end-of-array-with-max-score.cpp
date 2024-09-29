@@ -3,6 +3,7 @@
 
 class Solution {
 public:
+    // Maximum Possible Score
     // Result: you finally jump to index 'j' and convert all numbers from i to j-1 as nums[i].
     // Answer is found out by adding the values of the array from index 0 to index array.size()-2.
     // Notice that you can never include the last element of array in your answer.
