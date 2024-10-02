@@ -3,7 +3,7 @@ public:
     // Map Characters
     bool isIsomorphic(string s, string t) {
         // Map unmapped characters, skip mapped characters, return false for mapped non-isomorphic characters
-        // T: O(s + t)
+        // T: O(n)
         // S: O(n)
         unordered_map<char, char> mapStoT, mapTtoS;
         for(int i = 0; i < s.length(); ++i){
