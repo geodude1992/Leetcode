@@ -6,6 +6,7 @@ public:
     char findTheDifference(string s, string t) {
         // Map characters in s and increment count. Map t and decrement count
         unordered_map<char, int> mapS;
+        char ans;
 
         // Traverse string t and increment count since t will have more characters than s
         for(int i = 0; i < t.size(); ++i){
@@ -18,10 +19,10 @@ public:
 
         for(auto itr : mapS){
             if(itr.second == 1){
-                return itr.first;
+                ans = itr.first;
             }
         }
         // Return dummy
-        return mapS[0];
+        return ans;
     }
 };
