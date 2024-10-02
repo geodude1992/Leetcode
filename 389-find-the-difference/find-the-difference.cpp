@@ -19,10 +19,10 @@ public:
 
         for(auto itr : mapS){
             if(itr.second == 1){
-                ans = itr.first;
+                return itr.first;
             }
         }
         // Return dummy
-        return ans;
+        return 'a';
     }
 };
