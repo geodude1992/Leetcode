@@ -5,20 +5,17 @@ public:
     // S: O(1)
     int majorityElement(vector<int>& nums) {
         int majorityCount = nums.size() / 2;
-
-        for (int num : nums) {
-            int count = 0;
-            for (int elem : nums) {
-                if (elem == num) {
-                    count += 1;
+        int count;
+        int ans;
+        for(int num : nums){
+            count = 0;
+            for(int n : nums){
+                if(num == n){
+                    count++;
                 }
             }
-
-            if (count > majorityCount) {
-                return num;
-            }
+            if(count > majorityCount) return num;
         }
-
         return -1;
     }
 };
