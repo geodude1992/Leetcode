@@ -37,7 +37,7 @@ public:
         return largestSq * largestSq;
     }*/
 
-    // DP Solution
+    /* DP Solution
     // T: O(m * n) - Single pass
     // S: O(m * n) - Another matrix of same size is used for dp
     int maximalSquare(vector<vector<char>>& matrix) {
@@ -56,5 +56,29 @@ public:
             }
         }
         return largestSq * largestSq;
+    }*/
+
+    // Better DP Solution
+    // T: O(m * n) - Single pass
+    // S: O(n) - 1D Array
+    int maximalSquare(vector<vector<char>>& matrix) {
+        int rows = matrix.size(), cols = matrix[0].size();
+        // 1D dp array
+        vector<int> dp(cols + 1, 0);
+        int largestSqlen = 0, prev = 0;
+
+        for(int i = 1; i <= rows; ++i){
+            for(int j = 1; j <= cols; ++j){
+                int temp = dp[j];
+                if(matrix[i - 1][j - 1] == '1'){
+                    dp[j] = min(min(dp[j - 1], prev), dp[j]) + 1;
+                    largestSqlen = max(largestSqlen, dp[j]);
+                }else{
+                    dp[j] = 0;
+                }
+                prev = temp;
+            }
+        }
+        return pow(largestSqlen, 2);
     }
 };
