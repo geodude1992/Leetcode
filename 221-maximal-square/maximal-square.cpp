@@ -79,6 +79,6 @@ public:
                 prev = temp;
             }
         }
-        return pow(largestSqlen, 2);
+        return largestSqlen * largestSqlen;
     }
 };
