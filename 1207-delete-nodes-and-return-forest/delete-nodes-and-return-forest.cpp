@@ -14,8 +14,8 @@ public:
     /** Optimal lookup time for deletion, to_delete is converted into a set, set allow O(1) compared to O(n) array */
 
     /*  Recursion Solution (Post Order Traversal - childs than parent) - Process each node's child nodes
-        T: O()
-        S: O()
+        T: O(n) - Recursion traversal of each node in binary tree, converting arrary to set takes O(m) m <= n
+        S: O(n) - Each recursive call allocates a stack frame, set uses O(m) upto O(n)
     */
     vector<TreeNode*> delNodes(TreeNode* root, vector<int>& to_delete) {
         // Convert to_delete array into a set for efficient lookups
