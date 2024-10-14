@@ -5,7 +5,7 @@ public:
     /*  Stack Solution - Not efficient since we only have one type of parenthesis
         T: O(n) - traverse string
         S: O(n) - stack mem used
-    */
+    *
     int minAddToMakeValid(string s) {
         stack<char> Stac;
         int count = 0;
@@ -20,5 +20,24 @@ public:
         }
         // Return Count of Close Parenthesis needing a Open and Size of Stack
         return count + Stac.size();
+    }*/
+
+
+    /*  Counter Solution
+        T: O(n) - traverse string
+        S: O(1)
+    */
+    int minAddToMakeValid(string s) {
+        int openCount = 0, minRequired = 0;
+
+        for(char ch : s){
+            // Instead of pushing to a stack we increment count
+            if(ch == '(') openCount++;
+            else{
+                // Else Close encountered, Decrement openCount if > 0 or increment minRequired
+                openCount > 0 ? openCount-- : minRequired++;
+            }
+        }
+        return openCount + minRequired;
     }
 };
