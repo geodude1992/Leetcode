@@ -16,8 +16,9 @@ public:
         if(target == 0){
             result.push_back(currentComb);
             return;
-        }
-        for(int i = idx; i < candidates.size() && target >= candidates[i]; ++i){
+        }else if(target < 0) return;// Current combination subset sum is greater than out target
+        
+        for(int i = idx; i < candidates.size(); ++i){
             // Check for duplicate and ignore it, if current idx is equal to previous idx and i is not the current idx
             if(i != idx && candidates[i] == candidates[i - 1]) continue;
             currentComb.push_back(candidates[i]);
