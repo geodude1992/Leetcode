@@ -1,6 +1,8 @@
 class Solution {
 public:
     // BackTracking
+    // T: O(n * n!) given n than permutations is n! ... but T comp really is O(n^2 * Gamma(n+1, 1) - n!)
+    // S: O(n)
     vector<vector<int>> permute(vector<int>& nums) {
         vector<vector<int>> result;
         vector<int> currentPerm;
