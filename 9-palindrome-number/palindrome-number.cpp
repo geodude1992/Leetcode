@@ -1,5 +1,8 @@
 class Solution {
 public:
+    // Mathy Solution
+    // T: O(log10n)
+    // S: O(1)
     bool isPalindrome(int x) {
         if(x < 0) return false;
         // Beware of overflow when you reverse the integer.
