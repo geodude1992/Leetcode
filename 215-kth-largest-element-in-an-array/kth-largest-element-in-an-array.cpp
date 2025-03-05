@@ -4,6 +4,7 @@ public:
     // T: O()
     // S: O()
     int findKthLargest(vector<int>& nums, int k) {
+        // priority_queue<T, Container, Compare> ... T the data type stored in pq, Container: the storeage used, Comparision function detering order
         priority_queue<int, vector<int>, greater<int>> pq;
         for(int num : nums) {
             pq.push(num);
