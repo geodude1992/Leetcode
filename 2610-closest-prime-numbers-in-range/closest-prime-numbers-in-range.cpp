@@ -10,10 +10,11 @@ public:
 
         sieve[0] = sieve[1] = false;
 
-        // Store all the prime values from 0 till right
-        // Using sieveOfEratosthenes method to to find the  prime numbers
+        // Store all the prime values from 2 till sqrt(right)
+        // Using sieveOfEratosthenes method to to find the prime numbers
         for(int i = 2; i * i <= right; ++i){
             if(sieve[i]){
+                // for all multiples of i, mark them as composite
                 for(int j = i * i; j <= right; j += i){
                     sieve[j] = false;
                 }
@@ -27,16 +28,19 @@ public:
             }
         }
 
-        //If size of primeNumbers is less then 2, then the output will be [-1, -1]
-        //Even if there is 1 prime number between left & right, because res[1] - res[0] should still be minimized.
+        // If size of primeNumbers is less then 2, then the output will be [-1, -1]
+        // Even if there is 1 prime number between left & right, because res[1] - res[0] should still be minimized.
         if(primeNums.size() < 2) return result;
 
-        //If primeNumbers contains only 2 values, then no other combination exists
+        // If primeNumbers contains only 2 values, then no other combination exists
         if(primeNums.size()==2) return primeNums;
 
-        //Check the minimum difference between 2 prime numbers
+        // Check the minimum difference between 2 prime numbers
         int min_gap = INT_MAX;
         for(int i = 1; i < primeNums.size(); ++i){
+            // We are checking primeNumbers[i+1]-primeNumbers[i]<diff
+            // We are not checking primeNumbers[i+1]-primeNumbers[i]<=diff
+            // because we need to return smallest value with minimum difference 
             int gap = primeNums[i] - primeNums[i - 1];
             if(gap < min_gap){
                 min_gap = gap;
