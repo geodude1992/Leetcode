@@ -1,9 +1,4 @@
-class LRUCache {
-public:
-    // DLL and Hashmap Solution
-    // T: O()
-    // S: O()
-    class Node{
+class Node{
         public:
             int key;
             int val;
@@ -15,6 +10,13 @@ public:
                 this->val = val;
             }
     };
+    
+class LRUCache {
+public:
+    // DLL and Hashmap Solution
+    // T: O(1) for get and put functions
+    // S: O(capacity)
+    
 
     Node* head = new Node(-1, -1);
     Node* tail = new Node(-1, -1);
@@ -63,7 +65,9 @@ public:
         hmap[key] = head -> next;   // add key of new node to the front of DLL, after head node
     }
 
+    // This function is used to delete a node from the DDL
     void deleteNode(Node* delnode){
+        // updates the pointers of the previous and next nodes to exclude the node to be deleted, effectively removing it from the linked list
         Node* p = delnode -> prev;
         Node* n = delnode -> next;
 
@@ -73,6 +77,7 @@ public:
 
     // This function is used to add new node to front of DLL( right after head )
     void addNode(Node* newnode){
+        // updates the pointers of the new node, the previous first node, and head to include the new node as the new first node.
         Node* temp = head -> next;
         
         newnode -> next = temp;
