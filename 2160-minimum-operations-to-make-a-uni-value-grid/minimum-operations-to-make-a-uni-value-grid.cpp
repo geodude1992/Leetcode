@@ -1,11 +1,14 @@
 class Solution {
 public:
+    // Sorted and median
+    // T: O(mn*log(mn))
+    // S: O(mn)
     int minOperations(vector<vector<int>>& grid, int x) {
         // Turn 2D array into 1D array
         vector<int> nums;
-        for(int i = 0; i < grid.size(); i++){
-            for(int j = 0; j < grid[0].size(); j++){
-                nums.push_back(grid[i][j]);
+        for(int r = 0; r < grid.size(); r++){
+            for(int c = 0; c < grid[0].size(); c++){
+                nums.push_back(grid[r][c]);
             }
         }
         
