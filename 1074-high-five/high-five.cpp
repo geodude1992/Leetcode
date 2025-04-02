@@ -4,6 +4,9 @@
 
 class Solution {
 public:
+    // Map and Max Heap Solution
+    // T: O(log n)
+    // S: O(n) - map
     vector<vector<int>> highFive(vector<vector<int>>& items) {
         // Table of students with their scores listed greatest to lowest
         map<int, priority_queue<int>> table;    // Using map instead of unordered since we are returning ID's in ascending order
