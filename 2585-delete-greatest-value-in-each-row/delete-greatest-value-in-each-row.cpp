@@ -8,7 +8,7 @@ public:
 
         // 1. Sort each row of the grid.
         for(auto &row : grid)
-            sort(row.begin(), row.end());
+            sort(row.rbegin(), row.rend());
         
         // 2. for each column, use a priority queue to find the largest value in that column.
         for(int col = 0; col < grid[0].size(); col++){
