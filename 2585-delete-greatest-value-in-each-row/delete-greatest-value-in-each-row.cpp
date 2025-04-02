@@ -11,9 +11,9 @@ public:
             sort(row.rbegin(), row.rend());
         
         // 2. for each column, use a priority queue to find the largest value in that column.
-        for(int col = 0; col < grid[0].size(); col++){
+        for(int col = 0; col < grid[0].size(); ++col){
             priority_queue<int> pq;
-            for(int row = 0; row < grid.size(); row++){
+            for(int row = 0; row < grid.size(); ++row){
                 pq.push(grid[row][col]);
             }
             // 3. Add these largest values together to get the final answer.
