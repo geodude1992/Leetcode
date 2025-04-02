@@ -2,13 +2,13 @@ class Solution {
 public:
     // Sort with Max Heap Solution
     // T: O(m log m) | m rows
-    // S: O(n) pq
+    // S: O(n) pq | O(1) using currentMax
     int deleteGreatestValue(vector<vector<int>>& grid) {
         int sumOfMaxs = 0;
 
         // 1. Sort each row of the grid.
         for(auto &row : grid)
-            sort(row.rbegin(), row.rend());
+            sort(row.begin(), row.end());
         
         // 2. for each column, use a priority queue to find the largest value in that column.
         for(int col = 0; col < grid[0].size(); ++col){
