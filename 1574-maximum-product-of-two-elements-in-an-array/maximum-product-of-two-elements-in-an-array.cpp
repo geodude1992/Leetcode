@@ -14,7 +14,7 @@ public:
     }*/
 
     // Find Largest and save prev largest to secondLargest Solution
-    // T: O(n) - Iterate through the array once
+    /* T: O(n) - Iterate through the array once
     int maxProduct(vector<int>& nums) {
         int largest = 0;
         int secondLargest = 0;
@@ -31,5 +31,19 @@ public:
             }
         }
         return (largest-1)*(secondLargest-1);
+    }*/
+
+    // Priority Queue Solution
+    // T: O(n * log n) - iterated nums and log n cost to push to heap
+    // S: O(n) - pq
+    int maxProduct(vector<int>& nums) {
+        priority_queue<int> maxHeap;
+        for(int &num : nums){
+            maxHeap.push(num);
+        }
+        int l = maxHeap.top(); maxHeap.pop();
+        int r = maxHeap.top();
+        
+        return (l-1)*(r-1);
     }
 };
