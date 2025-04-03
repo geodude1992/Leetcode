@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // Brute force
+    /* T: O(n^2)
     int maxProduct(vector<int>& nums) {
         int ans = 0;
         // Iterate through array twice to find largest and second largest number
@@ -9,5 +11,25 @@ public:
             }
         }
         return ans;
+    }*/
+
+    // Find Largest and save prev largest to secondLargest Solution
+    // T: O(n) - Iterate through the array once
+    int maxProduct(vector<int>& nums) {
+        int largest = 0;
+        int secondLargest = 0;
+        
+        // Iterate through array 
+        for(int &num : nums){
+            // If the current number is larger than largest, set largest to current but first save the prev largest to second largest
+            if(num > largest){
+                secondLargest = largest;
+                largest = num;
+            }else{
+                // Say if our array has two elements and the first is larger than secondLargest will be our curr
+                secondLargest = max(secondLargest, num);
+            }
+        }
+        return (largest-1)*(secondLargest-1);
     }
 };
