@@ -27,7 +27,7 @@ public:
                 // do DFS in case has not been visited and there is land
                 if(grid[i][j] == '1'){
                     DFS(grid, i, j);
-                    ++islands;
+                    islands++;
                 }
             }
         }
