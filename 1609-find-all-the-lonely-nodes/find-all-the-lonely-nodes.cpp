@@ -18,14 +18,13 @@ public:
         return result;
     }
     
-    void dfs(TreeNode* root, bool isLonely, vector<int>& r){
-        if (root == nullptr) {
-            return;
-        }
+    void dfs(TreeNode* root, bool isLonely, vector<int>& lonelyNodes){
+        // Return from DFS if root is NULL
+        if (root == nullptr) return;
         if(isLonely){
-            r.push_back(root->val);
+            lonelyNodes.push_back(root->val);
         }
-        dfs(root->left, root->right == nullptr, r);
-        dfs(root->right, root->left == nullptr, r);
+        dfs(root->left, root->right == nullptr, lonelyNodes);
+        dfs(root->right, root->left == nullptr, lonelyNodes);
     }
 };
