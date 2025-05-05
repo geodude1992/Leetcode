@@ -12,6 +12,7 @@
 class Solution {
 public:
     TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
+        // Check if either trees are null if so return the other tree
         if(!root1 || !root2){
             return root1 ? root1 : root2;
         }
