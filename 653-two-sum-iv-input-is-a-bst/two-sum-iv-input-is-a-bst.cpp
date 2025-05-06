@@ -18,8 +18,8 @@ public:
         while(l < r){
             int sum = trav[l] + trav[r];
             if(sum == k) return true;
-            if(sum < k) l++;
-            else r--;
+            if(sum < k) l++;    // Increase calcalated sum
+            else r--;           // Decrease calculated sum
         }
         return false;
     }
