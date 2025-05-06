@@ -20,7 +20,7 @@ public:
 
 class Solution {
 public:
-    /* DFS Solution
+    // DFS Solution
     int maxDepth(Node* root) {
         if(!root) return 0;
         int mDepth = 0;
@@ -28,9 +28,9 @@ public:
             mDepth = max(mDepth, maxDepth(child));
         }
         return 1 + mDepth;
-    }*/
+    }
 
-    // BFS Solution
+    /* BFS Solution
     int maxDepth(Node* root) {
         if(!root) return 0;
         int mDepth = 0;
@@ -38,14 +38,14 @@ public:
         q.push(root);
         while(!q.empty()){
             mDepth++;
-            int depthNodes = q.size();
-            for(int i = 0; i < depthNodes; ++i){
-                auto node = q.front(); q.pop();
-                for(auto child : node->children) {
-                    if(child) q.push(child);
+            int depthNodes = q.size();  // Save depth level size
+            for(int i = 0; i < depthNodes; ++i){    // Traverse depth level size
+                auto node = q.front(); q.pop();     // get a node
+                for(auto child : node->children) {  // Traverse node's vector of children nodes
+                    if(child) q.push(child);        
                 }
             }
         }
         return mDepth;
-    }
+    }*/
 };
