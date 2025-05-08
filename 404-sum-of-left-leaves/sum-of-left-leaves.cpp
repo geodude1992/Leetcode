@@ -11,16 +11,17 @@
  */
 class Solution {
 public:
+    // BFS Solution
     int sumOfLeftLeaves(TreeNode* root) {
         int sum = 0;
-        queue<TreeNode*> q;
-        q.push(root);
+        queue<TreeNode*> q; 
+        q.push(root);   // Enqueue Root
         while(!q.empty()){
-            auto node = q.front(); q.pop();
+            auto node = q.front(); q.pop(); // Dequeue
             if(node->left) {
                 q.push(node->left);
-                auto leaf = node->left;
-                if(!leaf->left && !leaf->right) sum += node->left->val;
+                auto leaf = node->left;     // left leaf node
+                if(!leaf->left && !leaf->right) sum += leaf->val;
             }
             if(node->right) q.push(node->right);
         }
