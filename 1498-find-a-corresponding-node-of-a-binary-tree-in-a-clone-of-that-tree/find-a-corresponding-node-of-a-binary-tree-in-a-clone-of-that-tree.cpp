@@ -18,7 +18,7 @@ public:
         while(!q.empty()){
             auto node = q.front(); q.pop();
             cNode = q.front(); q.pop();
-            if(cNode->val == target->val) break;
+            if(cNode->val == target->val) break;    // Chained comparisons do not work in C++ like they do in Python a == b == c
             if(node->left){
                 q.push(node->left);
                 q.push(cNode->left);
