@@ -10,7 +10,8 @@
  */
 class Solution {
 public:
-    // Array 2-ptr Solution
+    /* Array 2-ptr Solution
+    // T: O(n) | S: O(n)
     bool isPalindrome(ListNode* head) {
         vector<int> arr;
         while(head != nullptr){
@@ -23,6 +24,21 @@ public:
             left++;
             right--;
         }
-        return left>=right;
+        return left >= right;
+    }*/
+    
+    //  Solution
+    // T: O(n) | S: O(n) As you know, if any problem you can do using stack only then you can use recursion as well ( mostly ).
+    ListNode* curr;
+    bool isPalindrome(ListNode* head) {
+        curr = head;
+        return solve(head);
+    }
+
+    bool solve(ListNode* head){
+        if(head == nullptr) return true;
+        bool ans = solve(head->next) && head->val == curr->val;
+        curr = curr->next;
+        return ans;
     }
 };
