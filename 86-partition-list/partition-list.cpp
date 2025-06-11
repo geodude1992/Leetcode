@@ -11,8 +11,9 @@
 class Solution {
 public:
     // Two List Solution
+    // T: O(n) | S: O(1)
     ListNode* partition(ListNode* head, int x) {
-        ListNode before_head(0), after_head(0); // Create two Node objects
+        ListNode before_head(0), after_head(0); // Create two Node objects with dummy
         ListNode* pBefore = &before_head, * pAfter = &after_head; // create two pointers to node objects
 
         // Iterate the original LL using head
