@@ -25,11 +25,11 @@ public:
 
         while(curr != nullptr){
             if(umap[curr->val] > 1){
-                curr = curr->next;
+                curr = curr->next;  // Skip nodes whose count is greater than 1 in map
             }else{
-                prev->next = curr;
-                prev = prev->next;
-                curr = curr->next;
+                prev->next = curr;  // Assign prev.next to curr which is unique node
+                prev = prev->next;  // Move prev ptr
+                curr = curr->next;  // move curr ptr
             }
         }
         prev->next = curr;
